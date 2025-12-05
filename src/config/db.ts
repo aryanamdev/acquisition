@@ -7,7 +7,7 @@ const connectionString = process.env.DATABASE_URL;
 
 if (!connectionString) {
   throw new Error(
-    '[DATABASE] Missing DATABASE_URL. Make sure it\'s set in your environment or .env file.'
+    "[DATABASE] Missing DATABASE_URL. Make sure it's set in your environment or .env file."
   );
 }
 
