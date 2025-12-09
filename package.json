@@ -31,6 +31,7 @@
   "license": "ISC",
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -40,10 +41,12 @@
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
     "winston": "^3.18.3",
-    "zod": "^4.1.13"
+    "zod": "^4.1.13",
+    "zod-validation-error": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/bcrypt": "^6.0.0",
     "@types/cookie-parser": "^1.4.10",
     "@types/dotenv": "^8.2.3",
     "@types/express": "^5.0.6",
