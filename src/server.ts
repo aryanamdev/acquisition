@@ -9,5 +9,5 @@ app.listen(process.env.PORT || 3000, err => {
       trace: err.stack,
     });
   }
-  console.log(`app is listening on port ${config.port}`);
+  console.log(`[App] App is listening on port http://localhost:${config.port}`);
 });
