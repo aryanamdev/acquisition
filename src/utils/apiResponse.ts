@@ -1,15 +1,15 @@
-export class ApiResponse<T> {
+export class ApiResponse<T, M = unknown> {
   statusCode: number;
   success: boolean;
   message: string;
   data: T | null;
-  meta: any;
+  meta: M | null;
 
-  constructor(statusCode: number, message: string, data?: T, meta?: any) {
+  constructor(statusCode: number, message: string, data?: T, meta?: M) {
     this.statusCode = statusCode;
-    this.data = data || null;
+    this.data = data ?? null;
     this.message = message;
     this.success = statusCode >= 200 && statusCode < 300;
-    this.meta = meta;
+    this.meta = meta ?? null;
   }
 }
