@@ -6,10 +6,14 @@ import cookieParser from 'cookie-parser';
 import router from '#routes/auth.routes.js';
 import { ApiError } from '#utils/apiError.js';
 import globalErrorHandler from '#middleware/errorHandler.js';
+import { ApiResponse } from '#utils/apiResponse.js';
+import  securityMiddleware  from '#middleware/security.middleware.js';
 
 const app = express();
 
-// Security for requests
+
+
+// securityMiddleware for requests
 app.use(helmet());
 
 // To allow json from incoming requests
@@ -30,17 +34,15 @@ app.use(
 // To parse cookies from request
 app.use(cookieParser());
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Hello world!',
-  });
-});
+app.use(securityMiddleware);
 
-app.get('/health', (req, res) =>
-  res.status(200).json({
-    message: 'Ok',
-  })
-);
+app.get('/', async (req, res) => {
+  try {
+    res.json(new ApiResponse(200, 'Hello from server'));
+  } catch (error) {
+    res.json(new ApiError(500, error as string));
+  }
+});
 
 app.get('/api', (req, res) =>
   res.status(200).json({
