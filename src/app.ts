@@ -7,11 +7,8 @@ import router from '#routes/auth.routes.js';
 import { ApiError } from '#utils/apiError.js';
 import globalErrorHandler from '#middleware/errorHandler.js';
 import { ApiResponse } from '#utils/apiResponse.js';
-import  securityMiddleware  from '#middleware/security.middleware.js';
 
 const app = express();
-
-
 
 // securityMiddleware for requests
 app.use(helmet());
@@ -34,7 +31,7 @@ app.use(
 // To parse cookies from request
 app.use(cookieParser());
 
-app.use(securityMiddleware);
+// app.use(securityMiddleware);
 
 app.get('/', async (req, res) => {
   try {
@@ -49,6 +46,10 @@ app.get('/api', (req, res) =>
     message: 'Acquisition API running!',
   })
 );
+
+app.get('/health', (req, res) => {
+  res.status(200).send('Ok');
+});
 
 app.use('/api/v1/auth', router);
 

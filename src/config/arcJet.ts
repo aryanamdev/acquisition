@@ -1,8 +1,13 @@
-import arcjet, { ArcjetNode, detectBot, shield, tokenBucket } from '@arcjet/node';
+import arcjet, {
+  ArcjetNode,
+  detectBot,
+  shield,
+  tokenBucket,
+} from '@arcjet/node';
 
-export const arcJet:ArcjetNode<{
-    requested: number;
-}>  = arcjet({
+export const arcJet: ArcjetNode<{
+  requested: number;
+}> = arcjet({
   // Get your site key from https://app.arcjet.com and set it as an environment
   // variable rather than hard coding.
   key: process.env.ARCJET_KEY || '',

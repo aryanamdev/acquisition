@@ -23,13 +23,16 @@
     "format:check": "prettier --check .",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "build:dev": "./scripts/dev.sh",
+    "build:prod": "./scripts/prod.sh"
   },
   "keywords": [],
   "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@arcjet/node": "^1.0.0-beta.15",
     "@neondatabase/serverless": "^1.0.2",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",

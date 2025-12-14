@@ -3,6 +3,17 @@
   "display": "Node 24",
   "_version": "24.0.0",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#config/*": ["src/config/*"],
+      "#routes/*": ["src/routes/*"],
+      "#controllers/*": ["src/controllers/*"],
+      "#middleware/*": ["src/middleware/*"],
+      "#models/*": ["src/models/*"],
+      "#services/*": ["src/services/*"],
+      "#utils/*": ["src/utils/*"],
+      "#validations/*": ["src/validations/*"]
+    },
     "lib": [
       "es2024",
       "ESNext.Array",
@@ -17,5 +28,9 @@
     "skipLibCheck": true,
     "moduleResolution": "node16",
     "outDir": "./dist"
-  }
+    
+  },
+    "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+  
 }
